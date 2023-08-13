@@ -1,0 +1,129 @@
+header {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 200px;
+  transition: 0.5s ease;
+}
+
+header .brand {
+  color: #000;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+.hover-title {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateX(-100%);
+}
+
+.brand:hover .hover-title {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+header .navigation {
+  position: relative;
+  text-align: end;  
+}
+
+header .navigation .navigation-items a {
+  position: relative;
+  color: #000;
+  font-size: 1em;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 30px;
+  transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:before {
+  content: "";
+  position: absolute;
+  background: #000;
+  width: 0;
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1100px){
+  header {
+    padding: 12px 20px;
+  }
+  
+  header .navigation {
+    display: none;
+  }
+
+  header .navigation.active {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(1, 1, 1, 0.5);
+  }
+
+  header .navigation .navigation-items a {
+    color: #222;
+    font-size: 1.2em;
+    margin: 20px;
+  }
+
+  header .navigation .navigation-items a:before {
+    background: #222;
+  }
+
+  header .navigation.active .navigation-items {
+    background: #fff;
+    width: 600px;
+    max-width: 600px;
+    margin: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+  }
+
+  .menu-btn{
+    background: url(../img/menu-black.png) no-repeat;
+    background-size: 30px;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .menu-btn.active {
+    z-index: 999;
+    background: url(../img/close-black.png) no-repeat;
+    background-size: 30px;
+    background-position: center;
+    transition: 0.3s ease;
+  }
+}

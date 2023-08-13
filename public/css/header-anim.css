@@ -1,0 +1,19 @@
+.slide-link {
+  overflow: hidden;
+}
+
+.slide-link span {
+  display: inline-block;
+  transition: transform 0.3s ease-out; 
+}
+
+.slide-link span:nth-child(2) {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 100%;
+}
+
+.slide-link:hover span {
+  transform: translateX(-100%);
+}
